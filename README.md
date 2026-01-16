@@ -12,7 +12,7 @@ Programming learning project
 
 - Git
 - Estilização de Código
-- Web Servers (Protocols, DNS, IP)
+- Web Servers (Protocols, DNS, IP, TDL, Authoritative Servers)
 - Client and Server relationship
 - Build and Deploy
 - EditorConfig
