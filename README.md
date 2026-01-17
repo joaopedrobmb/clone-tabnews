@@ -7,6 +7,9 @@ Programming learning project
 - Node.JS
 - React
 - Next
+- Jest
+- Prettier
+- EditorConfig
 
 ## Subjects Learned
 
