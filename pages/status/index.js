@@ -29,8 +29,7 @@ function UpdatedAt() {
 
   return (
     <div>
-      <p>Última atualização: {updatedAtText} </p>
-      <h2>Banco de dados</h2>
+      <div>Última atualização: {updatedAtText} </div>
     </div>
   );
 }
