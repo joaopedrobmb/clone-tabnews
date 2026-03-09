@@ -94,9 +94,9 @@ async function injectAnonymousUser(request) {
 }
 
 function canRequest(feature) {
+  console.log(feature);
   return function canRequestMiddleware(request, response, next) {
     const userTryingToRequest = request.context.user;
-
     if (authorization.can(userTryingToRequest, feature)) {
       return next();
     }
