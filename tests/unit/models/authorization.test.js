@@ -47,7 +47,6 @@ describe("models/authorization.js", () => {
         authorization.filterOutput(createdUser);
       }).toThrow(InternalServerError);
     });
-
     test("with unknown `feature`", () => {
       const createdUser = {
         features: [],
@@ -57,7 +56,6 @@ describe("models/authorization.js", () => {
         authorization.filterOutput(createdUser, "unknown:feature");
       }).toThrow(InternalServerError);
     });
-
     test("with valid `user, known `feature` but no `resource`", () => {
       const createdUser = {
         features: ["read:user"],
