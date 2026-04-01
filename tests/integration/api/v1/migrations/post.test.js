@@ -26,7 +26,7 @@ describe("POST /api/v1/migrations", () => {
     });
   });
   describe("Default user", () => {
-    test("Retrieving pending migrations", async () => {
+    test("Running pending migrations", async () => {
       const privilegedUser = await orchestrator.createUser({});
       const activatedPrivilegedUser =
         await orchestrator.activateUser(privilegedUser);
