@@ -2,6 +2,7 @@ import { version as uuidVersion } from "uuid";
 import setCookieParser from "set-cookie-parser";
 import orchestrator from "tests/orchestrator.js";
 import session from "models/session.js";
+import webserver from "infra/webserver.js";
 
 beforeAll(async () => {
   await orchestrator.waitForAllServices();
@@ -12,7 +13,7 @@ beforeAll(async () => {
 describe("GET /api/v1/users", () => {
   describe("Anonymous User", () => {
     test("Retrieving the endpoint", async () => {
-      const response = await fetch("http://localhost:3000/api/v1/user");
+      const response = await fetch(`${webserver.origin}/api/v1/user`);
 
       expect(response.status).toBe(403);
 
@@ -36,7 +37,7 @@ describe("GET /api/v1/users", () => {
 
       const sessionObject = await orchestrator.createSession(createdUser.id);
 
-      const response = await fetch("http://localhost:3000/api/v1/user", {
+      const response = await fetch(`${webserver.origin}/api/v1/user`, {
         headers: { Cookie: `session_id=${sessionObject.token}` },
       });
 
@@ -101,7 +102,7 @@ describe("GET /api/v1/users", () => {
 
       jest.useRealTimers();
 
-      const response = await fetch("http://localhost:3000/api/v1/user", {
+      const response = await fetch(`${webserver.origin}/api/v1/user`, {
         headers: {
           cookie: `session_id=${sessionObject.token}`,
         },
@@ -153,7 +154,7 @@ describe("GET /api/v1/users", () => {
       const nonexistentToken =
         "d86606270958020fe24277e62c59ac3c3240961456ae1f9d1c9dca3e14f323d03abe099c5fac669f693f42f168598c3b";
 
-      const response = await fetch("http://localhost:3000/api/v1/user", {
+      const response = await fetch(`${webserver.origin}/api/v1/user`, {
         headers: { Cookie: `session_id=${nonexistentToken}` },
       });
 
@@ -194,7 +195,7 @@ describe("GET /api/v1/users", () => {
 
       jest.useRealTimers();
 
-      const response = await fetch("http://localhost:3000/api/v1/user", {
+      const response = await fetch(`${webserver.origin}/api/v1/user`, {
         headers: { Cookie: `session_id=${sessionObject.token}` },
       });
 
