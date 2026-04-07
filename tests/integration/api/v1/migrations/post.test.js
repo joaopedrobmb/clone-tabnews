@@ -32,7 +32,7 @@ describe("POST /api/v1/migrations", () => {
         await orchestrator.activateUser(privilegedUser);
 
       const privilegedUserSession = await orchestrator.createSession(
-        activatedPrivilegedUser.id,
+        activatedPrivilegedUser,
       );
 
       const response = await fetch(`${webserver.origin}/api/v1/migrations`, {
@@ -62,7 +62,7 @@ describe("POST /api/v1/migrations", () => {
         "create:migration",
       ]);
       const privilegedUserSession = await orchestrator.createSession(
-        activatedPrivilegedUser.id,
+        activatedPrivilegedUser,
       );
 
       const response = await fetch(`${webserver.origin}/api/v1/migrations`, {
