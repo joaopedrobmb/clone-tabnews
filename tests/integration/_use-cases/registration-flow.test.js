@@ -4,10 +4,10 @@ import user from "models/user.js";
 import orchestrator from "tests/orchestrator.js";
 
 beforeAll(async () => {
-  await orchestrator.waitForAllServices(),
+  (await orchestrator.waitForAllServices(),
     await orchestrator.clearDatabase(),
     await orchestrator.runPendingMigrations(),
-    await orchestrator.deleteAllEmail();
+    await orchestrator.deleteAllEmail());
 });
 
 describe("Use case: Registration flow (all successful)", () => {
